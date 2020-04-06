@@ -40,7 +40,6 @@ class ArticleSpider(scrapy.Spider):
 
 
     def parse_articles(self, response):
-        print('Parse Article!!!!!!!!!!!')
         content_s = ""
         if '/news/' in response.request.url:
             if response.css('div.story-body'):
@@ -135,14 +134,6 @@ class ArticleSpider(scrapy.Spider):
 
 
     def closed(self, reason):
-        print("Closed!!!!!!!!!!!!!!!!!!!!!!!")
-        with open('new_items7.json', 'w') as f:
-            f.write(json.dumps(self.articles))
-
-        with open('new_urls7.txt', 'wt') as f:
-            for url in self.urls:
-                f.write(url + '\n')
-
         for i in range(len(self.articles)):
             self.collection.insert(dict(self.articles[str(i)]))
         self.client.close()
