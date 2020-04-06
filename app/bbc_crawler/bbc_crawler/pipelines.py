@@ -6,6 +6,7 @@
 # See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 from pymongo import MongoClient
 import json
+from .spiders.articlescrawler import ArticleSpider
 
 class BbcCrawlerPipeline(object):
 
@@ -19,15 +20,17 @@ class BbcCrawlerPipeline(object):
             authSource = 'admin',
         )
 
-        self.collection = self.client['news'].articles
+        self.collection = self.client['news'].articles_app
 
     def process_item(self, item, spider):
-
-        print('PipeLine Start!!!!!!!!!!!!!!!')
-        with open('items.json', 'w') as f:
-            f.write(json.dumps(item))
-
+        print('Starting!!!!!!!!! Pipeline process_item Function')
         for i in range(len(item)):
             self.collection.insert(dict(item[str(i)]))
 
         return item
+
+    def close_spider(self, spider):
+        print('Close_spider!!!!!!!!!!!!!!!!!!!!!!!!')
+        for i in range(len(ArticleSpider.articles)):
+            self.collection.insert(dict(ArticleSpider.articles[str(i)]))
+        self.client.close()

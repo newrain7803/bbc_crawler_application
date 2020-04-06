@@ -1,0 +1,88 @@
+body {
+ padding: 0;
+ margin: 0;
+}
+.inner-line{
+ display: inline-block;
+}
+.main-h{
+ min-height: 6vh;
+ border-bottom: 3px solid rgb(190, 190, 190);
+}
+.back-arrow{
+ width: 3vw;
+}
+.author, .date{
+ font-weight: bold;
+}
+.search-area{
+ width: 80vw;
+ height: 6vh;
+}
+.search-box{
+ min-width: 40vw;
+ min-height: 3vh;
+ border: 2px solid rgb(224, 224, 224);
+ border-radius: 7px 7px 7px 7px;
+ margin-left: 5vw;
+}
+.inner-line button[type=submit]{
+ min-height: 3vh;
+ min-width: 7vw;
+ border: 2px solid rgb(52, 152, 219);
+ background-color: rgb(52, 152, 219);
+ border-radius: 4px 4px 4px 4px;
+ font-weight: bold;
+ color: rgb(244, 244, 244);
+}
+.inner-line button[type=submit]:hover{
+ border: 2px solid rgb(42, 128, 185);
+ background-color: rgb(42, 128, 185);
+}
+.search-box input[type=text]{
+ border: none;
+ min-width: 40vw;
+ min-height: 3vh;
+}
+.button-area{
+ width: 19vw;
+ height: 6vh;
+}
+.top-margin{
+ margin-top: .4vh;
+}
+.crawl-btn{
+ font-size: 0.8rem;
+ font-weight: bold;
+ text-decoration: none;
+ border: 1px solid rgb(52, 152, 219);
+ background-color: rgb(52, 152, 219);
+ color: rgb(244, 244, 244);
+ padding: .5vw;
+ border-radius: 4px 4px 4px 4px;
+}
+.crawl-btn:hover{
+ border: 1px solid rgb(42, 128, 185);
+ background-color: rgb(42, 128, 185);
+}
+.view-all-btn{
+ font-size: 1.2rem;
+ font-weight: bold;
+ text-decoration: none;
+ border: 1px solid rgb(94, 94, 94);
+ background-color: rgb(94, 94, 94);
+ color: rgb(244, 244, 244);
+ padding: .3vw;
+ border-radius: 4px 4px 4px 4px;
+}
+.view-all-btn:hover{
+ border: 1px solid rgb(64, 64, 64);
+ background-color: rgb(64, 64, 64);
+}
+.main-footer{
+ min-height: 5vh;
+}
+.original{
+ font-weight: bold;
+ font-style: italic;
+}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block header %}
+<div class="container">
+ <div class="row">
+  <div class="col-sm-1">
+   <a href="{{ url_for('views.index') }}">
+    <img class="back-arrow" src="{{ url_for('static', filename='icon/return_Freepik.png') }}">
+   </a>
+  </div>
+  <div class="col-sm-10">
+   <h1>{{ article.get('title') }}</h1>
+  </div>
+ </div>
+</div>
+{% endblock %}
+{% block body %}
+<section class="mt-3">
+ <div class="mt-4">
+  <div>
+   <h4 class="author">{{ article.get('author') }}</h4>
+   <h5 class="date">{{ article.get('date') }}</h5>
+  </div>
+  <div class="container">
+   {{article.get('content_r') | safe}}
+  </div>
+ </div>
+</section>
+{% endblock %}
+{% block footer %}
+<footer class="main-footer">
+ <div class="container">
+  <h6 class="original">원문 : <a href="{{ article.get('url') }}">{{ article.get('url') }}</a></h6>
+  <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+ </div>
+</footer>
+{% endblock %}

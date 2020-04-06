@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block header %}
+ <div>
+  <div>
+   <form class="inner-line search-area" method="post">
+    <div class="inner-line search-box">
+     {% if search %}
+      <input type="text" id="" name="search" value="{{search}}" />
+     {% else %}
+      <input type="text" id="" name="search" value="" />
+     {% endif %}
+    </div>
+    <div class="inner-line">
+     <button type="submit" id="" class="">Search</button>
+    </div>
+   </form>
+   <div class="inner-line button-area">
+    <div class="top-margin">
+     <a href="{{url_for('views.crawling')}}" class="crawl-btn">Crawling</a>
+    </div>
+    <div class="top-margin">
+     <a href="{{ url_for('views.index') }}" class="view-all-btn">전체 글 보기</a>
+    </div>
+   </div>
+  </div>
+ </div>
+{% endblock %}
+{% block body %}
+ {% if get_flashed_messages() %}
+  <ul>
+  {% for message in get_flashed_messages() %}
+   <li class="alert alert-warning">{{message}}</li>
+  {% endfor %}
+  </ul>
+ {% endif %}
+ <section class="container">
+  <div class="container">
+  {% if datas %}
+   {# 존재하는 경우 #}
+   <table class="table">
+    <tr>
+     <th>제목</th>
+     <th>기자</th>
+     <th>작성날짜</th>
+     <th></th>
+    </tr>
+    {% for data in datas %}
+     <tr>
+      <td>
+       <a href="{{ url_for('views.articles', _id = data.get('_id')) }}">{{data.get('title')}}</a>
+      </td>
+      <td>{{data.get('author')}}</td>
+      <td>{{data.get('date')}}</td>
+      <td>
+       <a href="#">X</a>
+      </td>
+     </tr>
+    {% endfor %}
+   </table>
+  {% else %}
+   <h1>존재하는 데이터가 없습니다.</h1>
+  {% endif %}
+  </div>
+ </section>
+{% endblock %}

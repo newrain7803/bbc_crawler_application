@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block header %}
+ <div>
+  <div>
+   <form class="inner-line search-area" action="{{ url_for('views.index') }}" method="post">
+    <div class="inner-line search-box">
+     <input type="text" id="" name="search" value="{{search}}" />
+    </div>
+    <div class="inner-line">
+     <button type="submit" id="" class="">Search</button>
+    </div>
+   </form>
+   <div class="inner-line button-area">
+    <div class="top-margin">
+     <a href="{{url_for('views.crawling')}}" class="crawl-btn">Crawling</a>
+    </div>
+    <div class="top-margin">
+     <a href="{{url_for('views.index')}}" class="view-all-btn">전체 글 보기</a>
+    </div>
+   </div>
+  </div>
+ </div>
+{% endblock %}
+{% block body %}
+ <section class="container">
+  <div class="container">
+   <h1>Crawling이 완료 되었습니다.</h1>
+   <h3><a href="{{ url_for('views.index') }}">결과 보기.</a></h3>
+  </div>
+ </section>
+{% endblock %}
